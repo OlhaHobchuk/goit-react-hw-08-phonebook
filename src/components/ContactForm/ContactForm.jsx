@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
+import Notiflix from 'notiflix';
 import { selectContacts } from '../../redux/contacts/selectors';
 import { addContact } from '../../redux/contacts/operations';
 import css from './ContactForm.module.css';
@@ -34,7 +35,7 @@ export const ContactForm = () => {
     });
 
     if (isOnContacts) {
-      alert(`${name} is already in contacts`);
+      Notiflix.Notify.warning(`${name} is already in contacts`);
       return;
     }
     dispatch(addContact({ name, number }));

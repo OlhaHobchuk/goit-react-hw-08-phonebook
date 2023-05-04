@@ -62,7 +62,7 @@ export const LoginForm = () => {
           />
         </label>
         <button className={css.submitButton} type="submit">
-          Register
+          Log in
         </button>
       </form>
     </div>

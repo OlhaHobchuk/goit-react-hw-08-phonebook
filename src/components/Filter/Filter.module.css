@@ -1,4 +1,6 @@
 .filterTitle {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   padding: 0;
   margin-bottom: 5px;
@@ -8,9 +10,9 @@
   color: #dbe3ff;
 }
 .filterInput {
-  margin-left: 15px;
+  width: 150px;
   padding: 4px;
-  margin-bottom: 20px;
+  margin-top: 20px;
   border-radius: 6px;
   outline: none;
   font-size: 12px;

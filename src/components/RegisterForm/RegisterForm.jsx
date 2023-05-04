@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import Notiflix from 'notiflix';
 import { register } from '../../redux/user/operations';
+import { useAuth } from '../../redux/user/selectors';
 import css from './RegisterForm.module.css';
 
 export const RegisterForm = () => {
@@ -8,6 +10,7 @@ export const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const { error } = useAuth();
 
   const handleInputChange = event => {
     const { name, value } = event.currentTarget;
@@ -29,13 +32,21 @@ export const RegisterForm = () => {
     }
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    dispatch(register({ name, email, password }));
-
+  const formReset = () => {
     setName('');
     setEmail('');
     setPassword('');
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    if (error) {
+      Notiflix.Notify.warning('You are already authorized');
+      formReset();
+      return;
+    }
+    dispatch(register({ name, email, password }));
+    formReset();
   };
 
   return (

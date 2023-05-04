@@ -25,16 +25,19 @@ const Contacts = () => {
 
   return (
     <div className={css.container}>
-      <h1 className={css.title}>Phonebook</h1>
-      <ContactForm />
-      <h2 className={css.subTitle}>Contacts</h2>
+      <div className={css.subContainer}>
+        <h1 className={css.title}>Phonebook</h1>
+        <ContactForm />
+      </div>
+
       {loading && !error && <Loader />}
 
       {contacts.length ? (
-        <>
+        <div className={css.contactListContainer}>
+          <h2 className={css.subTitle}>Contacts</h2>
           <Filter />
           <ContactList />
-        </>
+        </div>
       ) : (
         <Notification message="There are no contacts" />
       )}
