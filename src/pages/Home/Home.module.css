@@ -1,0 +1,20 @@
+.homeContainer {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+}
+
+.homePageDescription {
+  margin: 0;
+  padding: 20px;
+  color: #dbe3ff;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+.imageContainer {
+  padding: 20px;
+}

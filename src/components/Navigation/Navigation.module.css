@@ -1,0 +1,36 @@
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.homeIcon {
+  width: 30px;
+  height: 30px;
+  fill: #dbe3ff;
+  transition: fill 250ms linear;
+}
+
+.homeIcon:hover,
+.homeIcon:focus {
+  fill: #805ec0;
+}
+
+.navigationLink {
+  text-decoration: none;
+  margin-left: 20px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.54;
+  color: #dbe3ff;
+  transition: background-color 250ms linear;
+}
+
+.navigationLink:hover,
+.navigationLink:focus {
+  display: block;
+  padding: 3px 5px;
+
+  border-radius: 4px;
+  background-color: #805ec0;
+}

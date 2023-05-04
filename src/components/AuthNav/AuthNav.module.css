@@ -1,0 +1,24 @@
+.authNavContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.authNavLink {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.54;
+  color: #dbe3ff;
+  transition: background-color 250ms linear;
+}
+
+.authNavLink:hover,
+.authNavLink:focus {
+  display: block;
+  padding: 3px 5px;
+  border-radius: 4px;
+  background-color: #805ec0;
+}
