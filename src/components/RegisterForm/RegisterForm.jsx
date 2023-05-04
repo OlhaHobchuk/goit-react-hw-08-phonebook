@@ -93,18 +93,3 @@ export const RegisterForm = () => {
     </div>
   );
 };
-
-// const contacts = useSelector(selectContacts);
-
-// const dispatch = useDispatch();
-
-// const handleSubmit = event => {
-//   event.preventDefault();
-//   const isOnContacts = contacts.find(item => {
-//     return item.name.toLowerCase() === name.toLowerCase();
-//   });
-
-//   if (isOnContacts) {
-//     alert(`${name} is already in contacts`);
-//     return;
-//   }

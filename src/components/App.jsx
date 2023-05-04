@@ -6,6 +6,7 @@ import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
 import { refreshUser } from '../redux/user/operations';
 import { useAuth } from '../redux/user/selectors';
 import { RestrictedRoute } from '../components/RestrictedRoute/RestrictedRoute';
+import { Loader } from '../components/Loader/Loader';
 const Home = lazy(() => import('../pages/Home/Home'));
 const Register = lazy(() => import('../pages/Register/Register'));
 const Login = lazy(() => import('../pages/Login/Login'));
@@ -21,7 +22,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <p>Loading</p>
+    <Loader />
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
