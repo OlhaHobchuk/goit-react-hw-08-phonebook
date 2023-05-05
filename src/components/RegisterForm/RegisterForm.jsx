@@ -80,7 +80,7 @@ export const RegisterForm = () => {
             value={email}
             onChange={handleInputChange}
             title="Please enter valid email address, for example  'example@gmail.com'"
-            min-length="6"
+            minLength={6}
             required
           />
         </label>
@@ -94,7 +94,8 @@ export const RegisterForm = () => {
             onChange={handleInputChange}
             placeholder="Please, enter your password"
             title="Please enter your password. Minimum length 8 symbols"
-            min-length="8"
+            minLength={8}
+            required
           />
         </label>
         <button className={css.submitButton} type="submit">

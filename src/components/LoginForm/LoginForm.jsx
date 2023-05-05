@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import Notiflix from 'notiflix';
 import { logIn } from '../../redux/user/operations';
+import { useAuth } from '../../redux/user/selectors';
 import css from './LoginForm.module.css';
 
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const { error } = useAuth();
 
   const handleInputChange = event => {
     const { name, value } = event.currentTarget;
@@ -24,11 +27,19 @@ export const LoginForm = () => {
     }
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    dispatch(logIn({ email, password }));
+  const formReset = () => {
     setEmail('');
     setPassword('');
+  };
+  const handleSubmit = event => {
+    event.preventDefault();
+    if (error) {
+      Notiflix.Notify.warning('Please, autorized at first!');
+      formReset();
+      return;
+    }
+    dispatch(logIn({ email, password }));
+    formReset();
   };
 
   return (
@@ -44,7 +55,7 @@ export const LoginForm = () => {
             value={email}
             onChange={handleInputChange}
             title="Please enter valid email address, for example  'example@gmail.com'"
-            min-length="6"
+            minLength={6}
             required
           />
         </label>
@@ -58,7 +69,8 @@ export const LoginForm = () => {
             onChange={handleInputChange}
             placeholder="Please, enter your password"
             title="Please enter your password. Minimum length 8 symbols"
-            min-length="8"
+            minLength={8}
+            required
           />
         </label>
         <button className={css.submitButton} type="submit">
